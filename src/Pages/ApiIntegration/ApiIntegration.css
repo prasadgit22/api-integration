@@ -1,0 +1,59 @@
+/* src/CrudComponent.css */
+.crud-component {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.crud-component h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.crud-component .form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.crud-component input,
+.crud-component textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.crud-component button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.crud-component button:hover {
+  background-color: #0056b3;
+}
+
+.crud-component ul {
+  list-style: none;
+  padding: 0;
+}
+
+.crud-component li {
+  background: #f9f9f9;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  position: relative;
+}
+
+.crud-component li button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: red;
+}

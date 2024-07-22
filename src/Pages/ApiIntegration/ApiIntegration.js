@@ -57,6 +57,11 @@ const ApiIntegration = () => {
     }
   };
 
+  // Edit Post
+  const editPost = (post) => {
+    setPost(post);
+  };
+
   useEffect(() => {
     fetchPosts();
   }, []);
@@ -71,6 +76,7 @@ const ApiIntegration = () => {
           placeholder="ID (for update/delete)"
           value={post.id}
           onChange={(e) => setPost({ ...post, id: e.target.value })}
+          readOnly
         />
         <input
           type="text"
@@ -83,16 +89,21 @@ const ApiIntegration = () => {
           value={post.body}
           onChange={(e) => setPost({ ...post, body: e.target.value })}
         />
-        <button onClick={createPost}>Create</button>
-        <button onClick={updatePost}>Update</button>
+        <button onClick={post.id ? updatePost : createPost}>
+          {post.id ? "Update" : "Create"}
+        </button>
       </div>
 
       <h2>Posts</h2>
       <ul>
         {posts.map((p) => (
-          <li key={p.id}>
+          <li
+            key={p.id}
+            style={{ display: "flex", flexDirection: "column", gap: "1em" }}
+          >
             <strong>{p.title}</strong> <br />
             {p.body}
+            <button onClick={() => editPost(p)}>Edit</button>
             <button onClick={() => deletePost(p.id)}>Delete</button>
           </li>
         ))}
